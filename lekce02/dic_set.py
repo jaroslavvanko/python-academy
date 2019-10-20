@@ -16,7 +16,7 @@ choice = input("What genre are you interest in")
 print("Here we go")
 print(film[choice])
 films.clear()
-print("Database was erased")
+print("Database has been erased")
 print(films)
 print(film)
 
