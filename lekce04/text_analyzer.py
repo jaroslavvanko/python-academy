@@ -31,47 +31,54 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 # Greet users in app and check password
-data = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}
+data = {
+    "bob": "123",
+    "ann": "pass123",
+    "mike": "password123",
+    "liz": "pass123"
+}
 print("Welcome my lord. Please login in app.")
 username = input("Please lord, enter your username:")
 password = input("Please lord, enter your password:")
 if data.get(username) == password:
-    print("Everything is allright")
-elif data.get(username) != password:
+    print("Everything is all right")
+else:
+    data.get(username) != password
     print("Password or username is wrong, my lord")
-    print("Acces denied")
+    print("Access denied")
     quit()
-print("=" * 50)
-print("USERNAME:", username)
-print("PASSWORD:", password)
+
 print("=" * 50)
 # Selecting text
 print("We have 3 texts to be analyzed.")
 result = 0
-select = input("Enter the number btw. 1 and 3 to select:")
-if not select:
+selection = input("Enter the number btw. 1 and 3 to select:")
+if not selection:
     print("We need number!")
     quit()
-elif not select.isnumeric():
+elif not selection.isnumeric():
     print("We need only number!")
     quit()
-elif select not in ["1", "2", "3"]:
+elif selection not in ["1", "2", "3"]:
     print("We need number btw 1 and 3!!")
     quit()
 else:
-    result = int(select)
+    result = int(selection)
 print("=" * 50)
 # Calculate words in selected text, lowercase, titlecase, uppercase, numeric string
+
 text = TEXTS[result - 1]
 words = text.split()
 just_words =[]
-while words:
+for words in just_words:
     just_word = words.pop()
     just_word = just_word.strip(",.:")
-    if just_word: just_words.append(just_word)
+    if just_word:
+        just_words.append(just_word)
 print("There are", len(just_words), "words in selected text.")
+
 # titlecase, uppercase, lowercase, numeric
-# print(just_words)
+
 i = 0
 for w in just_words:
     if w[0].isupper():
@@ -94,16 +101,17 @@ for z in just_words:
 print("There are", i, "numeric string. ")
 print("=" * 50)
 # Create a bar chart depicting the frequencies of word lengths in the text
-word_lenght = {}
+
+word_length = {}
 for w in just_words:
-    lenght = len(w)
-    if lenght in word_lenght:
-        word_lenght[lenght] = word_lenght[lenght] + 1
+    length = len(w)
+    if length in word_length:
+        word_length[length] = word_length[length] + 1
     else:
-        word_lenght[lenght] = 1
-# print(word_lenght)
-for key, value in sorted(word_lenght.items()):
-    print(key,value * "*", value)
+        word_length[length] = 1
+
+for key, value in sorted(word_length.items()):
+    print(key, "*" * value, value)
 # Sum all numeric words
 def calsum(l):
     return sum([int(i) for i in l if type(i) == int or i.isdigit()])
