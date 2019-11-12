@@ -7,4 +7,4 @@ for name in names:
 total = 0
 for name in names:
     total = total + len(name)
-print(total)
+    print(total)
