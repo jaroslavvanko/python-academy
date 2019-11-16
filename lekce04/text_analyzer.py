@@ -43,28 +43,28 @@ password = input("Please lord, enter your password:")
 if data.get(username) == password:
     print("Everything is all right")
 else:
-    data.get(username) != password
     print("Password or username is wrong, my lord")
     print("Access denied")
     quit()
 
 print("=" * 50)
+
 # Selecting text
 print("We have 3 texts to be analyzed.")
 result = 0
 selection = input("Enter the number btw. 1 and 3 to select:")
-if not selection:
-    print("We need number!")
-    quit()
-elif not selection.isnumeric():
+if not selection.isnumeric():
     print("We need only number!")
     quit()
+
 elif selection not in ["1", "2", "3"]:
     print("We need number btw 1 and 3!!")
     quit()
+
 else:
     result = int(selection)
 print("=" * 50)
+
 # Calculate words in selected text, lowercase, titlecase, uppercase, numeric string
 
 text = TEXTS[result - 1]
